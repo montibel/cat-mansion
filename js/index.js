@@ -3,36 +3,46 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const startScreen = document.querySelector(".game-intro"); 
 
+//IMAGES
 const background = new Image();
 background.src = "../images/black-background.jpeg"; 
 const cat = new Image(); 
 cat.src = "../images/cat.png"
+const ghost = new Image(); 
+ghost.src = "../images/ghost.png"; 
+
+//MOVING STUFF
 let isGameOver = false;
 let gameId = 0;
 let catX = 200;
 let catY = 500;
-const catHeight = 100;
-const catWidth = 70;
-let isMovingRight = false;
-let isMovingLeft = false;
-let isMovingUp = false;
-let isMovingDown = false;
+let ghostX = 200;
+let ghostY = 599;
+const catHeight = -200;
+const catWidth = 400;
+let isMovingRight = false; // ARROW KEYS
+let isMovingLeft = false;  // ARROW KEYS
+let isMovingUp = false;   // ARROW KEYS
+let isMovingDown = false; // ARROW KEYS
 
+
+//START BUTTON AND HIDE CANVAS 
 window.onload = () => {
-  canvas.style.display = "none"
+  canvas.style.display = "none" // THIS HIDE THE CANVAS
   document.getElementById("start-button").onclick = () => {
     console.log("starting");
-  canvas.style.display = "block"
+  canvas.style.display = "block" // THIS IS THE BLACK BACKGROUND
     startGame();
   };
 
   function startGame() {
     console.log(gameId);
     startScreen.style.display = "none"; 
-    ctx.drawImage(background, 0, 0, canvas.width , canvas.height);
-    ctx.drawImage(cat, catX, catY, catWidth, catHeight);   
+    ctx.drawImage(background, 0, 0, canvas.width , canvas.height); // THIS IS THE SIZE FROM BACKGROUND
+    ctx.drawImage(cat, catX, catY, catWidth, catHeight);   // THIS IS THE SIZE FROM THE CAT
+    ctx.drawImage(ghost, ghostX, ghostY, 200, 100); 
 
-if(isGameOver) {
+if(isGameOver) { 
     cancelAnimationFrame(gameId);
 } else {
   gameId = requestAnimationFrame(startGame); 
@@ -42,7 +52,8 @@ if (gameId === 2000) {
    isGameOver = true;
    }  
 
- // Move the car
+ // MOVE THE CAT
+ 
  if (isMovingRight === true) {
   catX += 2
 } else if (isMovingLeft === true) {
@@ -54,7 +65,7 @@ else if (isMovingUp === true ) {
 else if (isMovingDown === true) {
   catY += 2
 }
-  //movement of the cat
+  //MOVEMENT OF THE CAT
   document.addEventListener('keydown', event => {
     if (event.code === "ArrowRight") {
       console.log("We are going right!")
@@ -72,7 +83,7 @@ else if (isMovingDown === true) {
       isMovingDown = true
     }
   })
-  //stop the cat from moving
+  //STOP THE CAT FROM MOVING 
   document.addEventListener('keyup', () => {
     isMovingRight = false
     isMovingLeft = false
