@@ -7,25 +7,30 @@ const background = new Image();
 background.src = "../images/black-background.jpeg"; 
 const cat = new Image(); 
 cat.src = "../images/cat.png"
-
-
 let isGameOver = false;
 let gameId = 0;
+let catX = 200;
+let catY = 500;
+const catHeight = 100;
+const catWidth = 70;
+let isMovingRight = false;
+let isMovingLeft = false;
 
 window.onload = () => {
+  canvas.style.display = "none"
   document.getElementById("start-button").onclick = () => {
     console.log("starting");
+  canvas.style.display = "block"
     startGame();
   };
-
 
   function startGame() {
     console.log(gameId);
     startScreen.style.display = "none"; 
     ctx.drawImage(background, 0, 0, canvas.width , canvas.height);
-    ctx.drawImage(cat, 0, 0,);   
+    ctx.drawImage(cat, catX, catY, catWidth, catHeight);   
 
-  if(isGameOver) {
+if(isGameOver) {
     cancelAnimationFrame(gameId);
 } else {
   gameId = requestAnimationFrame(startGame); 
@@ -34,27 +39,30 @@ window.onload = () => {
 if (gameId === 2000) {
    isGameOver = true;
    }  
-  }
 
+ // Move the car
+ if (isMovingRight === true) {
+  catX += 2
+} else if (isMovingLeft === true) {
+  catX -= 2
+}
+  //movement of the cat
+  document.addEventListener('keydown', event => {
+    if (event.code === 'ArrowRight') {
+      console.log('We are going right!')
+      isMovingRight = true
+    } else if (event.code === 'ArrowLeft') {
+      console.log('We are going left!')
+      isMovingLeft = true
+    }
+  })
+  //stop the cat from moving
+  document.addEventListener('keyup', () => {
+    isMovingRight = false
+    isMovingLeft = false
+  })
+}
+}
 
-window.addEventListener("keydown", (e) => {
-  console.log(e.key)
-  switch (e.key) {
-    case "w":
-      connsole.log("pressed w key")
-      break
-      case "w":
-      connsole.log("pressed w key")
-      break
-      case "w":
-      connsole.log("pressed w key")
-      break
-      case "w":
-      connsole.log("pressed w key")
-      break  
-  }
-})
-
- }
  
  
