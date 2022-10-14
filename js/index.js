@@ -15,6 +15,8 @@ const catHeight = 100;
 const catWidth = 70;
 let isMovingRight = false;
 let isMovingLeft = false;
+let isMovingUp = false;
+let isMovingDown = false;
 
 window.onload = () => {
   canvas.style.display = "none"
@@ -46,20 +48,36 @@ if (gameId === 2000) {
 } else if (isMovingLeft === true) {
   catX -= 2
 }
+else if (isMovingUp === true ) {
+  catY -=2
+}
+else if (isMovingDown === true) {
+  catY += 2
+}
   //movement of the cat
   document.addEventListener('keydown', event => {
-    if (event.code === 'ArrowRight') {
-      console.log('We are going right!')
+    if (event.code === "ArrowRight") {
+      console.log("We are going right!")
       isMovingRight = true
-    } else if (event.code === 'ArrowLeft') {
-      console.log('We are going left!')
+    } else if (event.code === "ArrowLeft") {
+      console.log("We are going left!")
       isMovingLeft = true
+    }
+    else if (event.code === "ArrowUp") {
+      console.log("We are going up")
+      isMovingUp = true 
+    }
+    else if (event.code === "ArrowDown") {
+      console.log ("We are going down")
+      isMovingDown = true
     }
   })
   //stop the cat from moving
   document.addEventListener('keyup', () => {
     isMovingRight = false
     isMovingLeft = false
+    isMovingUp = false
+    isMovingDown = false 
   })
 }
 }
