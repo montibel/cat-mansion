@@ -3,9 +3,10 @@ const canvas = document.querySelector("canvas");
 const ctx = canvas.getContext("2d");
 const startScreen = document.querySelector(".game-intro"); 
 
+
 //IMAGES
 const background = new Image();
-background.src = "../images/black-background.jpeg"; 
+background.src = "../images/black-background.png"; 
 const cat = new Image(); 
 cat.src = "../images/cat.png"
 const ghost = new Image(); 
@@ -14,12 +15,12 @@ ghost.src = "../images/ghost.png";
 //MOVING STUFF
 let isGameOver = false;
 let gameId = 0;
-let catX = 200;
-let catY = 500;
-let ghostX = 200;
-let ghostY = 599;
+let catX = 50;
+let catY = 600;
+let ghostX = 700;
+let ghostY = 300;
 const catHeight = -200;
-const catWidth = 400;
+const catWidth = 200;
 let isMovingRight = false; // ARROW KEYS
 let isMovingLeft = false;  // ARROW KEYS
 let isMovingUp = false;   // ARROW KEYS
