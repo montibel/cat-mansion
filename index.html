@@ -5,22 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="styles/style.css" />
-    <title>Haunted house</title>
+    <title>Cat Mansion</title>
   </head>
   <body>
     <div class="game-intro">
       <img src="./images/haunted house.png" alt="" class="haunted-img" />
       <br />
       <button id="start-button">StartGame</button>
-      <p>Use the arrows to control the cat!</p>
+      <p>Use the arrows to control the ccat!</p>
       <img src="./images/arrows.png" alt="" class="arrows-img" />
     </div>
 
     <div id="game-board">
-      
-      <h1 id="score"> Score: 0 </h1>
+      <h1 id="score"> Score: 00</h1>
       <canvas id="canvas" width="1000" height="700"></canvas>
-      
+    </div>
+
+    <div id="gameover">
+    <p> Game Over </p>
+      <button id="end-button">
+     (Try again and save the cat!)
+      </button>
     </div>
 
     <script type="text/javascript" src="js/index.js"></script>

@@ -2,18 +2,16 @@ body {
   text-align: center;
   display: flex; 
   background-color: #000000;
-  width: 700px;
-  height: 500px;
+  flex-direction: column;
   padding: 2%;
 } 
 
 .game-intro {
   background-color: #20B2AA;
   display: flex;
+  flex-direction: column;
   align-items: center;
   text-align: justify;
-  flex-direction: row;
-  flex-wrap: nowrap;
   padding: 1% 30%;
 }
 
@@ -34,9 +32,9 @@ body {
   align-items: center;
 }
 
-body button {
+#start-button {
   display: flex;
-  font-size: 30px;
+  font-size: 31px;
   background-color: #000000;
   color: #fff;
 }
@@ -44,7 +42,7 @@ body button {
 #score {
   display: block;
   align-items: flex-end;
-  font-size: 20px;
+  font-size: 21px;
   padding-right: 10px;
   color: #fff;
   font-family: Verdana;
@@ -54,5 +52,26 @@ body button {
     display: flex;  
     align-items: center;
     padding-left: 20px; 
+}
+
+
+#gameover {
+  display: flex;
+  padding: 100px;
+  flex-direction: column;
+  color: white;
+  font-family: verdana;
+  text-align: center;
+}
+
+#end-button {
+  color: white;
+  background-color: #000000;
+  font-size: 15px;
+  font-family: verdana;
+  text-align: center;
+  padding: 15px 3px;
+  margin: 2px 300px;
+  cursor: pointer;
 }
 
