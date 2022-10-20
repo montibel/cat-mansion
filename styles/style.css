@@ -6,6 +6,31 @@ body {
   padding: 2%;
 } 
 
+img { max-width: 100%; height: auto; }
+
+/* Media Queries: Tablet Landscape */
+@media screen and (max-width: 1060px) {
+  #primary { width:67%; }
+  #secondary { width:30%; margin-left:3%;}  
+}
+
+/* Media Queries: Tabled Portrait */
+@media screen and (max-width: 768px) {
+  #primary { width:100%; }
+  #secondary { width:100%; margin:0; border:none; }
+}
+
+@media (min-device-width:600px) {
+  img[data-src-600px] {
+      content: attr(data-src-600px, url);
+  }
+}
+
+@media (min-device-width:800px) {
+  img[data-src-800px] {
+      content: attr(data-src-800px, url);
+  }
+}
 .game-intro {
   background-color: #20B2AA;
   display: flex;
@@ -80,7 +105,15 @@ body {
   display: flex;
   color: white;
   padding: 20px;
-  font-size: 20px;
+  font-size: 30px;
   font-family: Verdana;
 }
 
+#win{
+  display: flex;
+  padding: 100px;
+  flex-direction: column;
+  color: white;
+  font-family: verdana;
+  text-align: center;
+}
