@@ -81,7 +81,7 @@ let monsters = [
 { img: rat, x: ratX + 3500, y: ratY +100, height: ratHeight-200, width: ratWidth },
 { img: rat, x: ratX + 4500, y: ratY -200, height: ratHeight-100, width: ratWidth},
 { img: rat, x: ratX + 6000, y: ratY -100, height: ratHeight-50, width: ratWidth},
-{ img: rat, x: ratX + 600, y: ratY+200, height: ratHeight, width: ratWidth},
+{ img: rat, x: ratX + 6500, y: ratY+200, height: ratHeight, width: ratWidth},
 { img: it, x: itX + 6500, y: itY, height: itHeight, width: itWidth },
 { img: it, x: itX + 7000, y: itY, height: itHeight, width: itWidth },
 { img: it, x: itX + 7500, y: itY, height: itHeight, width: itWidth },
