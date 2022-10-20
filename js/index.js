@@ -19,6 +19,8 @@ daddy.src = "./images/daddy.png";
 const rat = new Image();
 rat.src = "./images/rat.png";
 const music = new Audio ("./music/horror-ambient.mp3");
+const it = new Image();
+it.src = "./images/it.png"
 
 
 //SCORE VARIABLES
@@ -31,9 +33,9 @@ let gameId = 0;
 
 // CAT
 let catX = 50;
-let catY = 500;
-const catHeight = 150;
-const catWidth = 100;
+let catY = 400;
+const catHeight = 250;
+const catWidth = 150;
 
 // GHOST
 const ghostX = 700;
@@ -44,14 +46,21 @@ const ghostWidth = 200;
 // DADDY
 const daddyX = 700;
 const daddyY = 400;
-const daddyHeight = 200;
-const daddyWidth = 100;
+const daddyHeight = 300;
+const daddyWidth = 200;
 
 // RAT
-const ratX = 900;
+const ratX = 500;
 const ratY = 200;
 const ratHeight = 300;
 const ratWidth = 200;
+
+// IT
+
+const itX = 900
+const itY = 200 
+const itHeight = 300
+const itWidth = 200
 
 // ARROW KEYS 
 let isMovingRight = false; // ARROW KEYS
@@ -62,28 +71,21 @@ let isMovingDown = false; // ARROW KEYS
 // MONSTERS
 let monsters = [
 { img: ghost, x: ghostX, y: ghostY, height: ghostHeight, width: ghostWidth},
-{ img: ghost, x: ghostX + 500, y: ghostY, height: ghostHeight, width: ghostWidth },
-{ img: ghost, x: ghostX + 1000, y: ghostY, height: ghostHeight, width: ghostWidth },
-{ img: ghost, x: ghostX + 1500, y: ghostY, height: ghostHeight, width: ghostWidth },
-{ img: daddy, x: daddyX + 2000, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 2500, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 2500, y: daddyY + 300, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 3000, y: daddyY + 600, height: daddyHeight, width: daddyHeight },
-{ img: rat, x: ratX + 3500, y: ratY+300, height: ratHeight, width: ratHeight },
-{ img: rat, x: ratX + 4000, y: ratY, height: ratHeight, width: ratHeight },
-{ img: rat, x: ratX + 4500, y: ratY, height: ratHeight, width: ratHeight },
-{ img: rat, x: ratX + 5000, y: ratY, height: ratHeight, width: ratHeight },
-{ img: ghost, x: ghostX + 5500, y: ghostY, height: ghostHeight+100, width: ghostWidth +100},
-{ img: ghost, x: ghostX + 6000, y: ghostY, height: ghostHeight+100, width: ghostWidth+100 },
-{ img: ghost, x: ghostX + 6500, y: ghostY, height: ghostHeight+100, width: ghostWidth+100 },
-{ img: daddy, x: daddyX + 7000, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 7500, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 8000, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 8500, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: rat, x: ratX + 9000, y: ratY, height: ratHeight, width: ratHeight },
-{ img: rat, x: ratX + 9500, y: ratY, height: ratHeight, width: ratHeight },
-{ img: rat, x: ratX + 10000, y: ratY, height: ratHeight, width: ratHeight },
-{ img: rat, x: ratX + 10500, y: ratY, height: ratHeight, width: ratHeight },
+{ img: ghost, x: ghostX + 500, y: ghostY + 100, height: ghostHeight, width: ghostWidth },
+{ img: ghost, x: ghostX + 1000, y: ghostY+200, height: ghostHeight, width: ghostWidth },
+{ img: ghost, x: ghostX + 1500, y: ghostY-100, height: ghostHeight, width: ghostWidth },
+{ img: daddy, x: daddyX + 2000, y: daddyY-200, height: daddyHeight, width: daddyWidth },
+{ img: daddy, x: daddyX + 2700, y: daddyY+200 , height: daddyHeight, width: daddyWidth },
+{ img: daddy, x: daddyX + 2500, y: daddyY-100, height: daddyHeight, width: daddyWidth },
+{ img: daddy, x: daddyX + 3000, y: daddyY-200, height: daddyHeight, width: daddyWidth },
+{ img: rat, x: ratX + 3500, y: ratY +100, height: ratHeight-200, width: ratWidth },
+{ img: rat, x: ratX + 4500, y: ratY -200, height: ratHeight-100, width: ratWidth},
+{ img: rat, x: ratX + 6000, y: ratY -100, height: ratHeight-50, width: ratWidth},
+{ img: rat, x: ratX + 600, y: ratY+200, height: ratHeight, width: ratWidth},
+{ img: it, x: itX + 6500, y: itY, height: itHeight, width: itWidth },
+{ img: it, x: itX + 7000, y: itY, height: itHeight, width: itWidth },
+{ img: it, x: itX + 7500, y: itY, height: itHeight, width: itWidth },
+{ img: it, x: itX + 8000, y: itY, height: itHeight, width: itWidth},
 ];
 
 
@@ -169,15 +171,15 @@ window.onload = () => {
     // MOVE THE CAT
 
     if (isMovingRight === true && catX + catHeight - 350 < canvas.height) {
-      catX += 4
+      catX += 6
     } else if (isMovingLeft === true && catX + catHeight + 850 > canvas.width) {
-      catX -= 4
+      catX -= 6
     }
     else if (isMovingUp === true && catY + catHeight + 850 > canvas.width) {
-      catY -= 4
+      catY -= 6
     }
     else if (isMovingDown === true && catY + catHeight < canvas.height) {
-      catY += 4 
+      catY += 6
     }
 
 
