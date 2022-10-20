@@ -31,7 +31,7 @@ let gameId = 0;
 
 // CAT
 let catX = 50;
-let catY = 600;
+let catY = 500;
 const catHeight = 150;
 const catWidth = 100;
 
@@ -62,14 +62,14 @@ let isMovingDown = false; // ARROW KEYS
 // MONSTERS
 let monsters = [
 { img: ghost, x: ghostX, y: ghostY, height: ghostHeight, width: ghostWidth},
-{ img: ghost, x: ghostX + 900, y: ghostY, height: ghostHeight, width: ghostWidth },
-{ img: ghost, x: ghostX + 600, y: ghostY, height: ghostHeight, width: ghostWidth },
 { img: ghost, x: ghostX + 500, y: ghostY, height: ghostHeight, width: ghostWidth },
-{ img: daddy, x: daddyX + 1500, y: daddyY, height: daddyHeight, width: daddyHeight },
+{ img: ghost, x: ghostX + 1000, y: ghostY, height: ghostHeight, width: ghostWidth },
+{ img: ghost, x: ghostX + 1500, y: ghostY, height: ghostHeight, width: ghostWidth },
 { img: daddy, x: daddyX + 2000, y: daddyY, height: daddyHeight, width: daddyHeight },
 { img: daddy, x: daddyX + 2500, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 3000, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: rat, x: ratX + 3500, y: ratY, height: ratHeight, width: ratHeight },
+{ img: daddy, x: daddyX + 2500, y: daddyY + 300, height: daddyHeight, width: daddyHeight },
+{ img: daddy, x: daddyX + 3000, y: daddyY + 600, height: daddyHeight, width: daddyHeight },
+{ img: rat, x: ratX + 3500, y: ratY+300, height: ratHeight, width: ratHeight },
 { img: rat, x: ratX + 4000, y: ratY, height: ratHeight, width: ratHeight },
 { img: rat, x: ratX + 4500, y: ratY, height: ratHeight, width: ratHeight },
 { img: rat, x: ratX + 5000, y: ratY, height: ratHeight, width: ratHeight },
@@ -80,6 +80,10 @@ let monsters = [
 { img: daddy, x: daddyX + 7500, y: daddyY, height: daddyHeight, width: daddyHeight },
 { img: daddy, x: daddyX + 8000, y: daddyY, height: daddyHeight, width: daddyHeight },
 { img: daddy, x: daddyX + 8500, y: daddyY, height: daddyHeight, width: daddyHeight },
+{ img: rat, x: ratX + 9000, y: ratY, height: ratHeight, width: ratHeight },
+{ img: rat, x: ratX + 9500, y: ratY, height: ratHeight, width: ratHeight },
+{ img: rat, x: ratX + 10000, y: ratY, height: ratHeight, width: ratHeight },
+{ img: rat, x: ratX + 10500, y: ratY, height: ratHeight, width: ratHeight },
 ];
 
 
@@ -150,7 +154,7 @@ window.onload = () => {
     for (let i = 0; i < monsters.length; i++) {
       let currentMonster = monsters[i]
       ctx.drawImage(currentMonster.img, currentMonster.x, currentMonster.y, currentMonster.width, currentMonster.height);
-      currentMonster.x -= 1
+      currentMonster.x -= 3
 
       if (currentMonster.y + currentMonster.height > catY &&
         catX + catWidth > currentMonster.x &&
@@ -164,16 +168,16 @@ window.onload = () => {
 
     // MOVE THE CAT
 
-    if (isMovingRight === true) {
+    if (isMovingRight === true && catX + catHeight - 350 < canvas.height) {
       catX += 4
-    } else if (isMovingLeft === true) {
+    } else if (isMovingLeft === true && catX + catHeight + 850 > canvas.width) {
       catX -= 4
     }
-    else if (isMovingUp === true) {
+    else if (isMovingUp === true && catY + catHeight + 850 > canvas.width) {
       catY -= 4
     }
-    else if (isMovingDown === true && catY + catHeight + 100 < canvas.height) {
-      catY += 4 , console.log(catY + catHeight, canvas.height)
+    else if (isMovingDown === true && catY + catHeight < canvas.height) {
+      catY += 4 
     }
 
 
