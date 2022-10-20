@@ -15,7 +15,11 @@ cat.src = "./images/cat.png"
 const ghost = new Image();
 ghost.src = "./images/ghost.png";
 const daddy = new Image();
-daddy.src = "./images/daddy.png"
+daddy.src = "./images/daddy.png";
+const rat = new Image();
+rat.src = "./images/rat.png";
+const music = new Audio ("./music/horror-ambient.mp3");
+
 
 //SCORE VARIABLES
 
@@ -28,7 +32,7 @@ let gameId = 0;
 // CAT
 let catX = 50;
 let catY = 600;
-const catHeight = -150;
+const catHeight = 150;
 const catWidth = 100;
 
 // GHOST
@@ -42,6 +46,12 @@ const daddyX = 700;
 const daddyY = 400;
 const daddyHeight = 200;
 const daddyWidth = 100;
+
+// RAT
+const ratX = 900;
+const ratY = 200;
+const ratHeight = 300;
+const ratWidth = 200;
 
 // ARROW KEYS 
 let isMovingRight = false; // ARROW KEYS
@@ -58,7 +68,18 @@ let monsters = [
 { img: daddy, x: daddyX + 1500, y: daddyY, height: daddyHeight, width: daddyHeight },
 { img: daddy, x: daddyX + 2000, y: daddyY, height: daddyHeight, width: daddyHeight },
 { img: daddy, x: daddyX + 2500, y: daddyY, height: daddyHeight, width: daddyHeight },
-{ img: daddy, x: daddyX + 3000, y: daddyY, height: daddyHeight, width: daddyHeight }
+{ img: daddy, x: daddyX + 3000, y: daddyY, height: daddyHeight, width: daddyHeight },
+{ img: rat, x: ratX + 3500, y: ratY, height: ratHeight, width: ratHeight },
+{ img: rat, x: ratX + 4000, y: ratY, height: ratHeight, width: ratHeight },
+{ img: rat, x: ratX + 4500, y: ratY, height: ratHeight, width: ratHeight },
+{ img: rat, x: ratX + 5000, y: ratY, height: ratHeight, width: ratHeight },
+{ img: ghost, x: ghostX + 5500, y: ghostY, height: ghostHeight+100, width: ghostWidth +100},
+{ img: ghost, x: ghostX + 6000, y: ghostY, height: ghostHeight+100, width: ghostWidth+100 },
+{ img: ghost, x: ghostX + 6500, y: ghostY, height: ghostHeight+100, width: ghostWidth+100 },
+{ img: daddy, x: daddyX + 7000, y: daddyY, height: daddyHeight, width: daddyHeight },
+{ img: daddy, x: daddyX + 7500, y: daddyY, height: daddyHeight, width: daddyHeight },
+{ img: daddy, x: daddyX + 8000, y: daddyY, height: daddyHeight, width: daddyHeight },
+{ img: daddy, x: daddyX + 8500, y: daddyY, height: daddyHeight, width: daddyHeight },
 ];
 
 
@@ -102,10 +123,10 @@ window.onload = () => {
 
 
   function startGame() {
-    console.log(gameId);
     score.style.display = "flex";
     startScreen.style.display = "none";
     gameBoard.style.display = "flex";
+    music.play();
 
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height); // THIS IS THE SIZE FROM BACKGROUND
     ctx.drawImage(cat, catX, catY, catWidth, catHeight);   // THIS IS THE SIZE FROM THE CAT 
@@ -129,12 +150,12 @@ window.onload = () => {
     for (let i = 0; i < monsters.length; i++) {
       let currentMonster = monsters[i]
       ctx.drawImage(currentMonster.img, currentMonster.x, currentMonster.y, currentMonster.width, currentMonster.height);
-      currentMonster.x -= 3
+      currentMonster.x -= 1
 
-      if (currentMonster.y + currentMonster.width > catY &&
+      if (currentMonster.y + currentMonster.height > catY &&
         catX + catWidth > currentMonster.x &&
         catX < currentMonster.x + currentMonster.width &&
-        catY + currentMonster.height > currentMonster.y
+        catY + catHeight > currentMonster.y
       ) {
         isGameOver = true;
       }
@@ -151,8 +172,8 @@ window.onload = () => {
     else if (isMovingUp === true) {
       catY -= 4
     }
-    else if (isMovingDown === true) {
-      catY += 4
+    else if (isMovingDown === true && catY + catHeight + 100 < canvas.height) {
+      catY += 4 , console.log(catY + catHeight, canvas.height)
     }
 
 
