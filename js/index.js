@@ -24,7 +24,6 @@ it.src = "./images/it.png"
 
 
 //SCORE VARIABLES
-
 let timer;
 
 //GAME
@@ -46,7 +45,7 @@ const ghostWidth = 200;
 // DADDY
 const daddyX = 700;
 const daddyY = 400;
-const daddyHeight = 300;
+const daddyHeight = 200;
 const daddyWidth = 200;
 
 // RAT
@@ -75,19 +74,21 @@ let monsters = [
 { img: ghost, x: ghostX + 1000, y: ghostY+200, height: ghostHeight, width: ghostWidth },
 { img: ghost, x: ghostX + 1500, y: ghostY-100, height: ghostHeight, width: ghostWidth },
 { img: daddy, x: daddyX + 2000, y: daddyY-200, height: daddyHeight, width: daddyWidth },
-{ img: daddy, x: daddyX + 2700, y: daddyY+200 , height: daddyHeight, width: daddyWidth },
-{ img: daddy, x: daddyX + 2500, y: daddyY-100, height: daddyHeight, width: daddyWidth },
-{ img: daddy, x: daddyX + 3000, y: daddyY-200, height: daddyHeight, width: daddyWidth },
+{ img: daddy, x: daddyX + 2500, y: daddyY-200 , height: daddyHeight, width: daddyWidth },
+{ img: daddy, x: daddyX + 3100, y: daddyY+300, height: daddyHeight, width: daddyWidth },
+{ img: daddy, x: daddyX + 3300, y: daddyY+100, height: daddyHeight, width: daddyWidth },
 { img: rat, x: ratX + 3500, y: ratY +100, height: ratHeight-200, width: ratWidth },
 { img: rat, x: ratX + 4500, y: ratY -200, height: ratHeight-100, width: ratWidth},
 { img: rat, x: ratX + 5000, y: ratY -100, height: ratHeight-50, width: ratWidth},
 { img: rat, x: ratX + 6000, y: ratY+200, height: ratHeight, width: ratWidth},
-{ img: it, x: itX + 6500, y: itY, height: itHeight, width: itWidth },
-{ img: it, x: itX + 7000, y: itY, height: itHeight, width: itWidth },
-{ img: it, x: itX + 7500, y: itY, height: itHeight, width: itWidth },
-{ img: it, x: itX + 8000, y: itY, height: itHeight, width: itWidth},
-{ img: it, x: itX + 9000, y: itY, height: itHeight +200, width: itWidth+200},
-{ img: it, x: itX + 10000, y: itY, height: itHeight+400, width: itWidth+400}
+{ img: it, x: itX + 6500, y: itY-100, height: itHeight, width: itWidth },
+{ img: it, x: itX + 7000, y: itY-100, height: itHeight, width: itWidth },
+{ img: it, x: itX + 7700, y: itY+100, height: itHeight, width: itWidth },
+{ img: it, x: itX + 8500, y: itY-100, height: itHeight, width: itWidth},
+{ img: it, x: itX + 9800, y: itY-300, height: itHeight +200, width: itWidth+200},
+{ img: it, x: itX + 10900, y: itY+100, height: itHeight+300, width: itWidth+300},
+{ img: it, x: itX + 11800, y: itY-600, height: itHeight+400, width: itWidth+400},
+{ img: it, x: itX + 12600, y: itY+400, height: itHeight+500, width: itWidth+500}
 ];
 
 
@@ -158,7 +159,7 @@ window.onload = () => {
     for (let i = 0; i < monsters.length; i++) {
       let currentMonster = monsters[i]
       ctx.drawImage(currentMonster.img, currentMonster.x, currentMonster.y, currentMonster.width, currentMonster.height);
-      currentMonster.x -= 3
+      currentMonster.x -= 4
 
       if (currentMonster.y + currentMonster.height > catY &&
         catX + catWidth > currentMonster.x &&
@@ -172,12 +173,12 @@ window.onload = () => {
 
     // MOVE THE CAT
 
-    if (isMovingRight === true && catX + catHeight - 350 < canvas.height) {
+    if (isMovingRight === true && catX + catHeight - 390 < canvas.height) {
       catX += 6
-    } else if (isMovingLeft === true && catX + catHeight + 850 > canvas.width) {
+    } else if (isMovingLeft === true && catX + catHeight + 750 > canvas.width) {
       catX -= 6
     }
-    else if (isMovingUp === true && catY + catHeight + 850 > canvas.width) {
+    else if (isMovingUp === true && catY + catHeight + 750 > canvas.width) {
       catY -= 6
     }
     else if (isMovingDown === true && catY + catHeight < canvas.height) {
