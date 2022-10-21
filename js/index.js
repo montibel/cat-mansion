@@ -95,7 +95,7 @@ let monsters = [
 // FUNCTION SCORE
 
 function timeIsRunning() {
-  let sec = 2;
+  let sec = 60;
   let timer = setInterval(function () {
     document.getElementById("timer").innerHTML = sec;
     sec --;
