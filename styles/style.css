@@ -114,6 +114,7 @@ img { max-width: 100%; height: auto; }
   padding: 100px;
   flex-direction: column;
   color: white;
+  font-size: 20px;
   font-family: verdana;
   text-align: center;
 }
